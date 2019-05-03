@@ -15,6 +15,7 @@ console.log("Collection: " + mongoDBCollection);
 console.log("MongoDB connection string: " + mongoDBConnStr);
 
 // Will be initialized on server startup at the bottom
+// Will be initialized on server startup at the bottom
 // Init to prototype to enable Intellisense
 var mongoDB = require('mongodb').Db.prototype;
 
