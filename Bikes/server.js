@@ -272,7 +272,7 @@ app.delete('/api/bikes/:bikeId', function(req, res) {
     });
 });
 
-// reserve bike ------------------------------------------------------------
+// reserve bike --------------------------------------------------------------
 app.patch('/api/bikes/:bikeId/reserve', function(req, res) {
     var requestID = req.header(requestIDHeaderName);
     if (!req.params.bikeId) {
