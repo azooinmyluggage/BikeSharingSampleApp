@@ -208,7 +208,7 @@ app.put('/api/bikes/:bikeId', function(req, res) {
     });
 });
 
-// get bike ------------------------------------------------------------
+// get bike --------------------------------------------------------------
 app.get('/api/bikes/:bikeId', function(req, res) {
     var requestID = req.header(requestIDHeaderName);
     if (!req.params.bikeId) {
