@@ -38,7 +38,8 @@ stages:
   - job: Build
     displayName: Build job
     pool:
-      name: work-machine
+      # name: work-machine
+      vmImage: 'ubuntu-latest'
 
     steps:
 
@@ -65,7 +66,8 @@ stages:
   - deployment: Deploy
     displayName: Deploy job
     pool:
-      name: work-machine
+      # name: work-machine
+      vmImage: 'ubuntu-latest'
 
     environment: 'BikeSharingSampleApp-Dev'
     strategy:
@@ -115,7 +117,8 @@ stages:
   - deployment: Deploy
     displayName: Deploy job
     pool:
-      name: work-machine
+      # name: work-machine
+      vmImage: 'ubuntu-latest'
 
     environment: 'BikeSharing-PR'
     strategy:
@@ -188,8 +191,10 @@ stages:
               azureSubscription: 'Azure-Sub-Bike'
               scriptLocation: inlineScript
               inlineScript: |
+                # az aks use-dev-spaces -n $(AZDSControllerName) -g $(AZDSControllerName) -y -s $(AZDSDefaultSpace)/$(system.pullRequest.sourceBranch) --update
                 azds controller select -n $(AZDSControllerName) -g $(AZDSControllerRG)
                 azds space select -n $(AZDSDefaultSpace)/$(system.pullRequest.sourceBranch) -y
+                azds up -d
                 azds list-uris -o json 
                 azds list-uris -o json > $(AGENT.TEMPDIRECTORY)/azdsuri.txt
 
