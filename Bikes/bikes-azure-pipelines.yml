@@ -38,7 +38,8 @@ stages:
   - job: Build
     displayName: Build job
     pool:
-      name: work-machine
+      # name: work-machine
+      vmImage: 'ubuntu-latest'
 
     steps:
 
@@ -115,7 +116,8 @@ stages:
   - deployment: Deploy
     displayName: Deploy job
     pool:
-      name: work-machine
+      # name: work-machine
+      vmImage: 'ubuntu-latest'
 
     environment: 'BikeSharing-PR'
     strategy:
